@@ -45,71 +45,107 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills & Expertise</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+    <section id="skills" className="py-24 bg-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl floating"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl floating" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl floating" style={{animationDelay: '1.5s'}}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20 animate-fadeInUp">
+          <h2 className="text-5xl lg:text-6xl font-bold gradient-text mb-6">Skills & Expertise</h2>
+          <div className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Transforming ideas into reality with cutting-edge technologies and creative solutions
+          </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="animate-fade-in hover:scale-105 transition-transform duration-300"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group animate-fadeInUp hover-lift"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className={`bg-gradient-to-r ${category.color} text-white p-3 rounded-lg inline-block mb-4`}>
-                  {category.icon}
+              <div className="relative bg-gradient-to-br from-white to-gray-50/80 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 backdrop-blur-sm overflow-hidden">
+                {/* Background gradient effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className={`bg-gradient-to-r ${category.color} text-white p-4 rounded-2xl inline-block mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {category.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-6 group-hover:gradient-text transition-all duration-300">{category.title}</h3>
+                  <div className="space-y-3">
+                    {category.skills.map((skill, skillIndex) => (
+                      <div 
+                        key={skill} 
+                        className="flex items-center group/skill"
+                        style={{animationDelay: `${(index * 150) + (skillIndex * 50)}ms`}}
+                      >
+                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-4 group-hover/skill:scale-150 transition-transform duration-300"></div>
+                        <span className="text-muted-foreground font-medium group-hover/skill:text-foreground transition-colors duration-300">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{category.title}</h3>
-                <div className="space-y-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skill} className="flex items-center">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                      <span className="text-gray-700">{skill}</span>
-                    </div>
-                  ))}
-                </div>
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
               </div>
             </div>
           ))}
         </div>
 
         {/* Core Concepts */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl mb-12">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Core Concepts</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {["Data Structures", "REST APIs", "Graph Databases", "ML Basics"].map((concept) => (
-              <span
-                key={concept}
-                className="bg-white px-6 py-3 rounded-full shadow-md text-gray-700 font-medium hover:shadow-lg transition-shadow duration-300"
-              >
-                {concept}
-              </span>
-            ))}
+        <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 p-12 rounded-3xl mb-16 animate-fadeInUp">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+          <div className="relative z-10">
+            <h3 className="text-3xl font-bold text-center mb-10 gradient-text">Core Concepts</h3>
+            <div className="flex flex-wrap justify-center gap-6">
+              {["Data Structures", "REST APIs", "Graph Databases", "ML Basics"].map((concept, index) => (
+                <div
+                  key={concept}
+                  className="group relative"
+                  style={{animationDelay: `${index * 100}ms`}}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative bg-white px-8 py-4 rounded-full shadow-lg font-semibold text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 block">
+                    {concept}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Coding Profiles */}
-        <div className="text-center">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8">Coding Profiles</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {codingProfiles.map((profile) => (
+        <div className="text-center animate-fadeInUp">
+          <h3 className="text-3xl font-bold mb-12 gradient-text">Coding Profiles</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {codingProfiles.map((profile, index) => (
               <a
                 key={profile.platform}
                 href={profile.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="group block bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-white/40 hover-lift"
+                style={{animationDelay: `${index * 200}ms`}}
               >
-                <div className={`w-12 h-12 ${profile.color} rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4`}>
-                  {profile.platform.charAt(0)}
+                <div className="relative mb-6">
+                  <div className={`w-16 h-16 ${profile.color} rounded-2xl flex items-center justify-center text-white font-bold text-2xl mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {profile.platform.charAt(0)}
+                  </div>
+                  <div className="absolute inset-0 bg-white/20 rounded-2xl blur group-hover:blur-md transition-all duration-300"></div>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{profile.platform}</h4>
-                <p className="text-gray-600">{profile.username}</p>
+                <h4 className="text-xl font-bold text-foreground mb-3 group-hover:gradient-text transition-all duration-300">{profile.platform}</h4>
+                <p className="text-muted-foreground font-medium">{profile.username}</p>
+                
+                {/* Hover effect border */}
+                <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
               </a>
             ))}
           </div>

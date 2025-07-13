@@ -112,12 +112,18 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Let's Connect</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+    <section id="contact" className="py-24 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl floating"></div>
+        <div className="absolute bottom-20 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl floating" style={{animationDelay: '3s'}}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20 animate-fadeInUp">
+          <h2 className="text-5xl lg:text-6xl font-bold gradient-text mb-6">Let's Connect</h2>
+          <div className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Have a project in mind or want to collaborate? I'd love to hear from you!
           </p>
         </div>
