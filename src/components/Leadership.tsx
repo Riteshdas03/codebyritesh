@@ -48,7 +48,7 @@ export const Leadership = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
           {leadershipRoles.map((role, index) => (
             <div
               key={role.title}
@@ -56,38 +56,38 @@ export const Leadership = () => {
               style={{ animationDelay: `${index * 300}ms` }}
             >
               {/* Header */}
-              <div className={`bg-gradient-to-br ${role.color} p-8 text-white relative overflow-hidden`}>
+              <div className={`bg-gradient-to-br ${role.color} p-6 sm:p-8 text-white relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
                 <div className="relative z-10">
-                  <div className="flex items-center mb-6">
-                    <span className="text-5xl mr-6 group-hover:scale-110 transition-transform duration-300">{role.icon}</span>
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2">{role.title}</h3>
-                      <p className="text-white/90 text-lg font-medium">{role.role}</p>
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl mr-4 sm:mr-6 group-hover:scale-110 transition-transform duration-300">{role.icon}</span>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 leading-tight">{role.title}</h3>
+                      <p className="text-white/90 text-base sm:text-lg font-medium">{role.role}</p>
                     </div>
                   </div>
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-16 h-16 sm:w-24 sm:h-24 bg-white/10 rounded-full blur-xl"></div>
               </div>
 
               {/* Content */}
-              <div className="p-8 space-y-8">
-                <p className="text-muted-foreground text-lg leading-relaxed">{role.description}</p>
+              <div className="p-6 sm:p-8 space-y-6 sm:space-y-8">
+                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">{role.description}</p>
                 
                 <div>
-                  <h4 className="font-bold text-foreground mb-6 flex items-center text-xl">
-                    <Award className="w-5 h-5 mr-3 text-primary" />
+                  <h4 className="font-bold text-foreground mb-4 sm:mb-6 flex items-center text-lg sm:text-xl">
+                    <Award className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-primary flex-shrink-0" />
                     Key Responsibilities
                   </h4>
-                  <ul className="space-y-4">
+                  <ul className="space-y-3 sm:space-y-4">
                     {role.responsibilities.map((responsibility, i) => (
                       <li 
                         key={i} 
                         className="flex items-center text-muted-foreground group/item"
                         style={{animationDelay: `${(index * 300) + (i * 100)}ms`}}
                       >
-                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-4 group-hover/item:scale-150 transition-transform duration-300"></div>
-                        <span className="font-medium group-hover/item:text-foreground transition-colors duration-300">{responsibility}</span>
+                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-3 sm:mr-4 group-hover/item:scale-150 transition-transform duration-300 flex-shrink-0"></div>
+                        <span className="font-medium group-hover/item:text-foreground transition-colors duration-300 text-sm sm:text-base">{responsibility}</span>
                       </li>
                     ))}
                   </ul>
@@ -101,12 +101,12 @@ export const Leadership = () => {
         </div>
 
         {/* Impact Statistics */}
-        <div className="glass-effect p-12 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 animate-fadeInUp">
-          <h3 className="text-3xl font-bold text-center mb-12 flex items-center justify-center gradient-text">
-            <Users className="w-8 h-8 mr-3 text-primary" />
+        <div className="glass-effect p-6 sm:p-8 lg:p-12 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 animate-fadeInUp">
+          <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 flex flex-col sm:flex-row items-center justify-center gradient-text gap-2 sm:gap-3">
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
             Community Impact
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
             {[
               { number: "100+", label: "GCP Labs Completed", color: "from-blue-500 to-blue-600" },
               { number: "50+", label: "Developers Mentored", color: "from-purple-500 to-purple-600" },
@@ -117,10 +117,10 @@ export const Leadership = () => {
                 className="group text-center"
                 style={{animationDelay: `${index * 200}ms`}}
               >
-                <div className={`text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   {stat.number}
                 </div>
-                <p className="text-muted-foreground font-medium text-lg group-hover:text-foreground transition-colors duration-300">{stat.label}</p>
+                <p className="text-muted-foreground font-medium text-base sm:text-lg group-hover:text-foreground transition-colors duration-300">{stat.label}</p>
               </div>
             ))}
           </div>

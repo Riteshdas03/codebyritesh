@@ -22,70 +22,70 @@ export const Hero = () => {
         <div className="absolute top-1/3 left-1/5 w-3 h-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-full animate-bounce delay-1000"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
         {/* Enhanced Content */}
-        <div className="text-center lg:text-left animate-fade-in">
+        <div className="text-center lg:text-left animate-fade-in order-2 lg:order-1">
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-blue-100 border border-green-200/50 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-blue-100 border border-green-200/50 rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 backdrop-blur-sm text-sm sm:text-base">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-green-800">Open to opportunities</span>
+            <span className="font-medium text-green-800">Open to opportunities</span>
           </div>
 
-          <div className="mb-8">
-            <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start">
-              <span className="text-lg text-blue-600 font-medium">Hello, I'm</span>
+          <div className="mb-6 sm:mb-8">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3 justify-center lg:justify-start">
+              <span className="text-base sm:text-lg text-blue-600 font-medium">Hello, I'm</span>
               <div className="flex gap-1">
-                <Star className="w-4 h-4 text-yellow-400 fill-current animate-pulse" />
-                <Star className="w-4 h-4 text-yellow-400 fill-current animate-pulse delay-100" />
-                <Star className="w-4 h-4 text-yellow-400 fill-current animate-pulse delay-200" />
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current animate-pulse" />
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current animate-pulse delay-100" />
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current animate-pulse delay-200" />
               </div>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-3 sm:mb-4 leading-tight">
               Ritesh Das
             </h1>
             
-            <div className="flex flex-wrap items-center gap-3 justify-center lg:justify-start mb-6">
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-100">
-                <Code className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-gray-700">Software Engineer</span>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 justify-center lg:justify-start mb-4 sm:mb-6">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 sm:px-4 py-2 shadow-lg border border-gray-100">
+                <Code className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+                <span className="text-xs sm:text-sm font-medium text-gray-700">Software Engineer</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-100">
-                <Cloud className="w-4 h-4 text-purple-600" />
-                <span className="text-sm font-medium text-gray-700">Cloud Enthusiast</span>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 sm:px-4 py-2 shadow-lg border border-gray-100">
+                <Cloud className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
+                <span className="text-xs sm:text-sm font-medium text-gray-700">Cloud Enthusiast</span>
               </div>
             </div>
             
-            <p className="text-xl text-gray-600 mb-6 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Passionate about building <span className="font-semibold text-blue-600">scalable, meaningful tech</span>. 
               Currently developing <span className="font-bold text-gradient bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">MediReach</span> — 
               a real-world healthcare platform.
             </p>
             
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200/50 rounded-full px-4 py-2 mb-8">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200/50 rounded-full px-3 sm:px-4 py-2 mb-6 sm:mb-8 text-sm sm:text-base">
               <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-orange-800">Work in Progress</span>
+              <span className="font-medium text-orange-800">Work in Progress</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
             <Button
               onClick={() => scrollToSection("projects")}
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-0"
+              className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-0 text-sm sm:text-base"
               size="lg"
             >
-              <Rocket className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              <Rocket className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce" />
               View Projects
             </Button>
             
             <Button
               variant="outline"
               asChild
-              className="group border-2 border-blue-600/20 bg-white/80 backdrop-blur-sm text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="group border-2 border-blue-600/20 bg-white/80 backdrop-blur-sm text-blue-600 hover:bg-blue-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base"
               size="lg"
             >
               <a href="https://app.luminpdf.com/viewer/686613a093f47a455edc012e" target="_blank" rel="noopener noreferrer">
-                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce" />
                 View Resume
               </a>
             </Button>
@@ -93,24 +93,24 @@ export const Hero = () => {
             <Button
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="group border-2 border-gray-300/50 bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-gray-700 hover:text-white px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="group border-2 border-gray-300/50 bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-gray-700 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base"
               size="lg"
             >
-              <Mail className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              <Mail className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce" />
               Contact Me
             </Button>
           </div>
         </div>
 
         {/* Enhanced Profile Image */}
-        <div className="flex justify-center lg:justify-end animate-fade-in delay-300">
+        <div className="flex justify-center lg:justify-end animate-fade-in delay-300 order-1 lg:order-2">
           <div className="relative group">
             {/* Outer glow effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full blur-xl opacity-30 group-hover:opacity-50 animate-pulse"></div>
+            <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full blur-xl opacity-30 group-hover:opacity-50 animate-pulse"></div>
             
             {/* Main image container */}
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-1 shadow-2xl transform transition-transform duration-500 group-hover:scale-105">
-              <div className="w-full h-full rounded-full bg-white p-2 shadow-inner">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-1 shadow-2xl transform transition-transform duration-500 group-hover:scale-105">
+              <div className="w-full h-full rounded-full bg-white p-1 sm:p-2 shadow-inner">
                 <img 
                   src="https://i.postimg.cc/GhJdWVg7/image-1.jpg" 
                   alt="Ritesh Das"
@@ -119,23 +119,23 @@ export const Hero = () => {
               </div>
             </div>
             
-            {/* Enhanced floating elements */}
-            <div className="absolute -top-4 -right-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white p-4 rounded-full animate-bounce shadow-xl">
-              <Rocket size={28} />
+            {/* Enhanced floating elements - responsive sizes */}
+            <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white p-2 sm:p-3 md:p-4 rounded-full animate-bounce shadow-xl">
+              <Rocket size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
             </div>
-            <div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 rounded-full animate-bounce delay-500 shadow-xl text-2xl">
+            <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-2 sm:p-3 md:p-4 rounded-full animate-bounce delay-500 shadow-xl text-base sm:text-lg md:text-xl lg:text-2xl">
               ☁️
             </div>
-            <div className="absolute top-8 -left-8 bg-gradient-to-r from-green-400 to-blue-500 text-white p-3 rounded-full animate-pulse delay-1000 shadow-lg">
-              <Code size={20} />
+            <div className="absolute top-4 sm:top-6 md:top-8 -left-4 sm:-left-6 md:-left-8 bg-gradient-to-r from-green-400 to-blue-500 text-white p-2 sm:p-3 rounded-full animate-pulse delay-1000 shadow-lg">
+              <Code size={12} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
             </div>
             
             {/* Orbiting elements */}
             <div className="absolute inset-0 animate-spin duration-[20s]">
-              <div className="absolute top-4 left-1/2 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
+              <div className="absolute top-3 sm:top-4 left-1/2 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
             </div>
             <div className="absolute inset-0 animate-spin duration-[15s] rotate-45">
-              <div className="absolute top-8 left-1/2 w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full"></div>
+              <div className="absolute top-6 sm:top-8 left-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full"></div>
             </div>
           </div>
         </div>

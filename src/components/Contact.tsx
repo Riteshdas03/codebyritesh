@@ -128,12 +128,12 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Form */}
           <div className="animate-fade-in">
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Send me a message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 rounded-2xl shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Send me a message</h3>
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Your Name
@@ -144,7 +144,7 @@ export const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full"
+                    className="w-full h-10 sm:h-12"
                     placeholder="Enter your name"
                     required
                   />
@@ -159,7 +159,7 @@ export const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full"
+                    className="w-full h-10 sm:h-12"
                     placeholder="Enter your email"
                     required
                   />
@@ -174,7 +174,7 @@ export const Contact = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full"
+                    className="w-full h-10 sm:h-12"
                     placeholder="What's this about?"
                     required
                   />
@@ -189,7 +189,7 @@ export const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full"
+                    className="w-full min-h-[100px] sm:min-h-[120px]"
                     placeholder="Tell me about your project or idea..."
                     required
                   />
@@ -197,7 +197,7 @@ export const Contact = () => {
                 <Button 
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-full transition-all duration-300 disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 sm:py-4 rounded-full transition-all duration-300 disabled:opacity-50 h-12 sm:h-14 text-sm sm:text-base"
                 >
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
@@ -207,23 +207,23 @@ export const Contact = () => {
 
           {/* Contact Information */}
           <div className="animate-fade-in delay-300">
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {/* Direct Contact */}
               <div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Get in Touch</h3>
-                <div className="space-y-4">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Get in Touch</h3>
+                <div className="space-y-3 sm:space-y-4">
                   {contactInfo.map((contact) => (
                     <a
                       key={contact.label}
                       href={contact.href}
-                      className="flex items-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:shadow-md transition-shadow duration-300"
+                      className="flex items-center p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:shadow-md transition-shadow duration-300"
                     >
-                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-lg mr-4">
+                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0">
                         {contact.icon}
                       </div>
-                      <div>
-                        <p className="font-medium text-gray-900">{contact.label}</p>
-                        <p className="text-gray-600">{contact.value}</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">{contact.label}</p>
+                        <p className="text-gray-600 text-sm sm:text-base break-all">{contact.value}</p>
                       </div>
                     </a>
                   ))}
@@ -232,22 +232,22 @@ export const Contact = () => {
 
               {/* Social Links */}
               <div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Find me online</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Find me online</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105 ${social.color}`}
+                      className={`flex items-center p-3 sm:p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105 ${social.color}`}
                     >
-                      <div className="mr-3 text-gray-600">
+                      <div className="mr-2 sm:mr-3 text-gray-600 flex-shrink-0">
                         {social.icon}
                       </div>
-                      <div>
-                        <p className="font-medium text-gray-900">{social.label}</p>
-                        <p className="text-sm text-gray-600">{social.value}</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">{social.label}</p>
+                        <p className="text-xs sm:text-sm text-gray-600 break-all">{social.value}</p>
                       </div>
                     </a>
                   ))}
@@ -255,15 +255,15 @@ export const Contact = () => {
               </div>
 
               {/* Call to Action */}
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
-                <h4 className="text-xl font-semibold mb-4">Ready to collaborate?</h4>
-                <p className="text-blue-100 mb-6">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 sm:p-8 rounded-2xl text-white">
+                <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Ready to collaborate?</h4>
+                <p className="text-blue-100 mb-4 sm:mb-6 text-sm sm:text-base">
                   Whether you have a project in mind, want to discuss opportunities, or just want to connect, 
                   I'm always open to meaningful conversations.
                 </p>
                 <Button
                   variant="secondary"
-                  className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 rounded-full"
+                  className="bg-white text-blue-600 hover:bg-gray-100 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base"
                 >
                   Let's Talk!
                 </Button>

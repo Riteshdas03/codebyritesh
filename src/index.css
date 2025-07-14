@@ -150,6 +150,42 @@ All colors MUST be HSL.
   html {
     scroll-behavior: smooth;
   }
+  
+  /* Mobile-first responsive breakpoints */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Better mobile spacing */
+    section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    
+    /* Touch-friendly buttons */
+    button, a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Tablet responsive adjustments */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  /* Desktop responsive adjustments */
+  @media (min-width: 1025px) {
+    section {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
 }
 
 /* Enhanced keyframes for modern animations */

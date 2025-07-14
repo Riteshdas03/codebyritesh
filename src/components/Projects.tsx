@@ -81,7 +81,7 @@ export const Projects = () => {
         </div>
 
         {/* Main Projects */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
           {projects.map((project, index) => (
             <div
               key={project.title}
@@ -89,38 +89,38 @@ export const Projects = () => {
               style={{ animationDelay: `${index * 250}ms` }}
             >
               {/* Header */}
-              <div className={`bg-gradient-to-br ${project.color} p-8 text-white relative overflow-hidden`}>
+              <div className={`bg-gradient-to-br ${project.color} p-6 sm:p-8 text-white relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-5xl group-hover:scale-110 transition-transform duration-300">{project.icon}</span>
-                    <div className="flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                      {project.status === "Work in Progress" && <Clock className="w-4 h-4 mr-2" />}
-                      <span className="text-sm font-bold">{project.status}</span>
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300">{project.icon}</span>
+                    <div className="flex items-center bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                      {project.status === "Work in Progress" && <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />}
+                      <span className="text-xs sm:text-sm font-bold">{project.status}</span>
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                  <p className="text-white/90 text-lg">{project.subtitle}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">{project.title}</h3>
+                  <p className="text-white/90 text-base sm:text-lg">{project.subtitle}</p>
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-16 h-16 sm:w-24 sm:h-24 bg-white/10 rounded-full blur-xl"></div>
               </div>
 
               {/* Content */}
-              <div className="p-8 space-y-6">
-                <p className="text-muted-foreground text-lg leading-relaxed">{project.description}</p>
+              <div className="p-6 sm:p-8 space-y-4 sm:space-y-6">
+                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">{project.description}</p>
                 
                 {/* Features */}
                 <div>
-                  <h4 className="font-bold text-foreground mb-4 text-lg">Key Features</h4>
-                  <ul className="space-y-3">
+                  <h4 className="font-bold text-foreground mb-3 sm:mb-4 text-base sm:text-lg">Key Features</h4>
+                  <ul className="space-y-2 sm:space-y-3">
                     {project.features.map((feature, i) => (
                       <li 
                         key={i} 
                         className="flex items-center text-muted-foreground group/feature"
                         style={{animationDelay: `${(index * 250) + (i * 100)}ms`}}
                       >
-                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-4 group-hover/feature:scale-150 transition-transform duration-300"></div>
-                        <span className="font-medium group-hover/feature:text-foreground transition-colors duration-300">{feature}</span>
+                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-3 sm:mr-4 group-hover/feature:scale-150 transition-transform duration-300 flex-shrink-0"></div>
+                        <span className="font-medium group-hover/feature:text-foreground transition-colors duration-300 text-sm sm:text-base">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -128,12 +128,12 @@ export const Projects = () => {
 
                 {/* Tech Stack */}
                 <div>
-                  <h4 className="font-bold text-foreground mb-4 text-lg">Tech Stack</h4>
-                  <div className="flex flex-wrap gap-3">
+                  <h4 className="font-bold text-foreground mb-3 sm:mb-4 text-base sm:text-lg">Tech Stack</h4>
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={tech}
-                        className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold hover:bg-primary/20 transition-colors duration-300"
+                        className="px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-semibold hover:bg-primary/20 transition-colors duration-300"
                         style={{animationDelay: `${(index * 250) + (techIndex * 50)}ms`}}
                       >
                         {tech}
@@ -143,29 +143,29 @@ export const Projects = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4">
                   {project.status === "Work in Progress" ? (
                     <Button 
                       variant="outline" 
                       disabled 
-                      className="flex-1 h-12 text-lg font-semibold border-2 border-muted"
+                      className="w-full h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold border-2 border-muted"
                     >
-                      <Clock className="w-5 h-5 mr-3" />
+                      <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                       In Development
                     </Button>
                   ) : (
                     <>
                       <Button 
                         variant="outline" 
-                        className="flex-1 h-12 text-lg font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white"
+                        className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white"
                       >
-                        <Github className="w-5 h-5 mr-3" />
+                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                         Code
                       </Button>
                       <Button 
-                        className="flex-1 h-12 text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+                        className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
                       >
-                        <ExternalLink className="w-5 h-5 mr-3" />
+                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                         Demo
                       </Button>
                     </>
