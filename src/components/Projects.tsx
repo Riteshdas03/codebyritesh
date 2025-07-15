@@ -180,7 +180,11 @@ export const Projects = () => {
         </div>
 
         {/* Open Source Contributions */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 p-4 sm:p-6 lg:p-12 rounded-2xl sm:rounded-3xl animate-fadeInUp">
+        <div 
+          className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 p-4 sm:p-6 lg:p-12 rounded-2xl sm:rounded-3xl"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
           <div className="relative z-10">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12 gradient-text">Open Source Contributions</h3>
@@ -189,7 +193,8 @@ export const Projects = () => {
                 <div 
                   key={contrib.title} 
                   className="group glass-effect p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 hover-lift"
-                  style={{animationDelay: `${index * 300}ms`}}
+                  data-aos="fade-up"
+                  data-aos-delay={700 + (index * 100)}
                 >
                   <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 lg:space-x-6">
                     <div className="text-3xl sm:text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0 self-center sm:self-start">
@@ -202,15 +207,16 @@ export const Projects = () => {
                         </h4>
                         <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed text-center sm:text-left">{contrib.description}</p>
                       </div>
-                      <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-3">
-                        {contrib.contributions.map((item, itemIndex) => (
-                          <span
-                            key={item}
-                            className="px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 bg-green-50 border border-green-200 text-green-700 rounded-full text-xs sm:text-sm lg:text-base font-semibold hover:bg-green-100 transition-colors duration-300"
-                            style={{animationDelay: `${(index * 300) + (itemIndex * 100)}ms`}}
-                          >
-                            {item}
-                          </span>
+                <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-3">
+                  {contrib.contributions.map((item, itemIndex) => (
+                    <span
+                      key={item}
+                      className="px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 bg-green-50 border border-green-200 text-green-700 rounded-full text-xs sm:text-sm lg:text-base font-semibold hover:bg-green-100 hover:scale-105 transition-all duration-300"
+                      data-aos="zoom-in"
+                      data-aos-delay={400 + (index * 100) + (itemIndex * 50)}
+                    >
+                      {item}
+                    </span>
                         ))}
                       </div>
                     </div>

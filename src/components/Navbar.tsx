@@ -6,13 +6,8 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+  const [activeSection, setActiveSection] = useState("hero");
 
   const navItems = [
     { name: "Home", href: "#hero" },
@@ -22,6 +17,30 @@ export const Navbar = () => {
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      
+      // Update active section based on scroll position
+      const sections = navItems.map(item => item.href.substring(1));
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [navItems]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -39,7 +58,7 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3 sm:py-4">
-          <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300">
             RD
           </div>
 
@@ -49,9 +68,14 @@ export const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium text-sm lg:text-base"
+                className={`relative text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium text-sm lg:text-base group ${
+                  activeSection === item.href.substring(1) ? 'text-blue-600' : ''
+                }`}
               >
                 {item.name}
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full ${
+                  activeSection === item.href.substring(1) ? 'w-full' : ''
+                }`}></span>
               </button>
             ))}
           </div>

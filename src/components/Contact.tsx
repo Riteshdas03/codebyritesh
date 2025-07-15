@@ -120,7 +120,7 @@ export const Contact = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20 animate-fadeInUp">
+        <div className="text-center mb-20" data-aos="fade-up">
           <h2 className="text-5xl lg:text-6xl font-bold gradient-text mb-6">Let's Connect</h2>
           <div className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -130,11 +130,11 @@ export const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Form */}
-          <div className="animate-fade-in">
+          <div data-aos="fade-right" data-aos-delay="200">
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 rounded-2xl shadow-lg">
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Send me a message</h3>
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                <div>
+                <div data-aos="fade-up" data-aos-delay="300">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Your Name
                   </label>
@@ -149,7 +149,7 @@ export const Contact = () => {
                     required
                   />
                 </div>
-                <div>
+                <div data-aos="fade-up" data-aos-delay="400">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address
                   </label>
@@ -164,7 +164,7 @@ export const Contact = () => {
                     required
                   />
                 </div>
-                <div>
+                <div data-aos="fade-up" data-aos-delay="500">
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                     Subject
                   </label>
@@ -179,7 +179,7 @@ export const Contact = () => {
                     required
                   />
                 </div>
-                <div>
+                <div data-aos="fade-up" data-aos-delay="600">
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message
                   </label>
@@ -197,7 +197,9 @@ export const Contact = () => {
                 <Button 
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 sm:py-4 rounded-full transition-all duration-300 disabled:opacity-50 h-12 sm:h-14 text-sm sm:text-base"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 sm:py-4 rounded-full transition-all duration-300 hover:animate-pulse disabled:opacity-50 h-12 sm:h-14 text-sm sm:text-base"
+                  data-aos="zoom-in"
+                  data-aos-delay="700"
                 >
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
@@ -206,19 +208,21 @@ export const Contact = () => {
           </div>
 
           {/* Contact Information */}
-          <div className="animate-fade-in delay-300">
+          <div data-aos="fade-left" data-aos-delay="300">
             <div className="space-y-6 sm:space-y-8">
               {/* Direct Contact */}
               <div>
                 <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Get in Touch</h3>
                 <div className="space-y-3 sm:space-y-4">
-                  {contactInfo.map((contact) => (
+                  {contactInfo.map((contact, index) => (
                     <a
                       key={contact.label}
                       href={contact.href}
-                      className="flex items-center p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:shadow-md transition-shadow duration-300"
+                      className="flex items-center p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:shadow-md hover:scale-105 transition-all duration-300"
+                      data-aos="fade-left"
+                      data-aos-delay={400 + (index * 100)}
                     >
-                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0">
+                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
                         {contact.icon}
                       </div>
                       <div className="min-w-0 flex-1">
@@ -231,18 +235,20 @@ export const Contact = () => {
               </div>
 
               {/* Social Links */}
-              <div>
+              <div data-aos="fade-left" data-aos-delay="600">
                 <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Find me online</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  {socialLinks.map((social) => (
+                  {socialLinks.map((social, index) => (
                     <a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`flex items-center p-3 sm:p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105 ${social.color}`}
+                      data-aos="zoom-in"
+                      data-aos-delay={700 + (index * 100)}
                     >
-                      <div className="mr-2 sm:mr-3 text-gray-600 flex-shrink-0">
+                      <div className="mr-2 sm:mr-3 text-gray-600 flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
                         {social.icon}
                       </div>
                       <div className="min-w-0 flex-1">
@@ -255,7 +261,11 @@ export const Contact = () => {
               </div>
 
               {/* Call to Action */}
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 sm:p-8 rounded-2xl text-white">
+              <div 
+                className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 sm:p-8 rounded-2xl text-white"
+                data-aos="fade-up"
+                data-aos-delay="900"
+              >
                 <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Ready to collaborate?</h4>
                 <p className="text-blue-100 mb-4 sm:mb-6 text-sm sm:text-base">
                   Whether you have a project in mind, want to discuss opportunities, or just want to connect, 
@@ -263,7 +273,9 @@ export const Contact = () => {
                 </p>
                 <Button
                   variant="secondary"
-                  className="bg-white text-blue-600 hover:bg-gray-100 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+                  className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 hover:animate-pulse px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300"
+                  data-aos="zoom-in"
+                  data-aos-delay="1000"
                 >
                   Let's Talk!
                 </Button>

@@ -16,7 +16,7 @@ export const About = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20 animate-fadeInUp">
+        <div className="text-center mb-20" data-aos="fade-up">
           <h2 className="text-5xl lg:text-6xl font-bold gradient-text mb-6">About Me</h2>
           <div className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -25,7 +25,7 @@ export const About = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="animate-fadeInLeft">
+          <div data-aos="fade-right" data-aos-delay="200">
             <div className="space-y-8">
               <div className="space-y-6">
                 <h3 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
@@ -57,7 +57,8 @@ export const About = () => {
                     <div 
                       key={strength.label}
                       className="group flex items-center space-x-3 p-4 rounded-2xl bg-white/60 hover:bg-white/80 transition-all duration-300 hover-lift"
-                      style={{animationDelay: `${index * 100}ms`}}
+                      data-aos="fade-up"
+                      data-aos-delay={300 + (index * 100)}
                     >
                       <div className={`w-3 h-3 ${strength.color} rounded-full shadow-lg group-hover:scale-125 transition-transform duration-300`}></div>
                       <span className="font-medium text-foreground">{strength.label}</span>
@@ -68,7 +69,7 @@ export const About = () => {
             </div>
           </div>
 
-          <div className="animate-fadeInRight">
+          <div data-aos="fade-left" data-aos-delay="400">
             <div className="space-y-8">
               {/* Soft Skills Card */}
               <div className="glass-effect p-8 rounded-3xl shadow-lg hover-lift">
@@ -78,7 +79,8 @@ export const About = () => {
                     <div
                       key={skill}
                       className="group bg-white/80 p-6 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 text-center border border-white/40"
-                      style={{animationDelay: `${index * 150}ms`}}
+                      data-aos="fade-left"
+                      data-aos-delay={500 + (index * 100)}
                     >
                       <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-3 group-hover:scale-150 transition-transform duration-300"></div>
                       <span className="font-semibold text-foreground">{skill}</span>

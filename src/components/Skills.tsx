@@ -54,7 +54,7 @@ export const Skills = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20 animate-fadeInUp">
+        <div className="text-center mb-20" data-aos="fade-up">
           <h2 className="text-5xl lg:text-6xl font-bold gradient-text mb-6">Skills & Expertise</h2>
           <div className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -67,15 +67,16 @@ export const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="group animate-fadeInUp hover-lift"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="group hover-lift"
+              data-aos="zoom-in"
+              data-aos-delay={200 + (index * 100)}
             >
               <div className="relative bg-gradient-to-br from-white to-gray-50/80 p-6 sm:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 backdrop-blur-sm overflow-hidden">
                 {/* Background gradient effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="relative z-10">
-                  <div className={`bg-gradient-to-r ${category.color} text-white p-3 sm:p-4 rounded-2xl inline-block mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`bg-gradient-to-r ${category.color} text-white p-3 sm:p-4 rounded-2xl inline-block mb-4 sm:mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                     {category.icon}
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6 group-hover:gradient-text transition-all duration-300">{category.title}</h3>
@@ -84,10 +85,11 @@ export const Skills = () => {
                       <div 
                         key={skill} 
                         className="flex items-center group/skill"
-                        style={{animationDelay: `${(index * 150) + (skillIndex * 50)}ms`}}
+                        data-aos="fade-up"
+                        data-aos-delay={300 + (index * 100) + (skillIndex * 50)}
                       >
                         <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-3 sm:mr-4 group-hover/skill:scale-150 transition-transform duration-300"></div>
-                        <span className="text-sm sm:text-base text-muted-foreground font-medium group-hover/skill:text-foreground transition-colors duration-300">{skill}</span>
+                        <span className="text-sm sm:text-base text-muted-foreground font-medium group-hover/skill:text-foreground hover:scale-105 transition-all duration-300">{skill}</span>
                       </div>
                     ))}
                   </div>
@@ -101,7 +103,11 @@ export const Skills = () => {
         </div>
 
         {/* Core Concepts */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 p-6 sm:p-8 lg:p-12 rounded-3xl mb-12 sm:mb-16 animate-fadeInUp">
+        <div 
+          className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 p-6 sm:p-8 lg:p-12 rounded-3xl mb-12 sm:mb-16"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
           <div className="relative z-10">
             <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-10 gradient-text">Core Concepts</h3>
@@ -110,7 +116,8 @@ export const Skills = () => {
                 <div
                   key={concept}
                   className="group relative"
-                  style={{animationDelay: `${index * 100}ms`}}
+                  data-aos="zoom-in"
+                  data-aos-delay={700 + (index * 50)}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative bg-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full shadow-lg font-semibold text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 block text-sm sm:text-base">
@@ -123,7 +130,7 @@ export const Skills = () => {
         </div>
 
         {/* Coding Profiles */}
-        <div className="text-center animate-fadeInUp">
+        <div className="text-center" data-aos="fade-up" data-aos-delay="800">
           <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 gradient-text">Coding Profiles</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
             {codingProfiles.map((profile, index) => (
@@ -133,10 +140,11 @@ export const Skills = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-white/40 hover-lift"
-                style={{animationDelay: `${index * 200}ms`}}
+                data-aos="flip-up"
+                data-aos-delay={900 + (index * 100)}
               >
                 <div className="relative mb-4 sm:mb-6">
-                  <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 ${profile.color} rounded-2xl flex items-center justify-center text-white font-bold text-lg sm:text-xl lg:text-2xl mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 ${profile.color} rounded-2xl flex items-center justify-center text-white font-bold text-lg sm:text-xl lg:text-2xl mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}>
                     {profile.platform.charAt(0)}
                   </div>
                   <div className="absolute inset-0 bg-white/20 rounded-2xl blur group-hover:blur-md transition-all duration-300"></div>
