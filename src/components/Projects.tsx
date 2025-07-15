@@ -180,33 +180,33 @@ export const Projects = () => {
         </div>
 
         {/* Open Source Contributions */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 p-12 rounded-3xl animate-fadeInUp">
+        <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 p-4 sm:p-6 lg:p-12 rounded-2xl sm:rounded-3xl animate-fadeInUp">
           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
           <div className="relative z-10">
-            <h3 className="text-3xl font-bold text-center mb-12 gradient-text">Open Source Contributions</h3>
-            <div className="grid grid-cols-1 gap-8">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12 gradient-text">Open Source Contributions</h3>
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8">
               {contributions.map((contrib, index) => (
                 <div 
                   key={contrib.title} 
-                  className="group glass-effect p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 hover-lift"
+                  className="group glass-effect p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 hover-lift"
                   style={{animationDelay: `${index * 300}ms`}}
                 >
-                  <div className="flex items-start space-x-6">
-                    <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 lg:space-x-6">
+                    <div className="text-3xl sm:text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0 self-center sm:self-start">
                       {contrib.icon}
                     </div>
-                    <div className="flex-1 space-y-6">
+                    <div className="flex-1 space-y-3 sm:space-y-4 lg:space-y-6 w-full">
                       <div>
-                        <h4 className="text-2xl font-bold text-foreground mb-3 group-hover:gradient-text transition-all duration-300">
+                        <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-2 sm:mb-3 group-hover:gradient-text transition-all duration-300 text-center sm:text-left">
                           {contrib.title}
                         </h4>
-                        <p className="text-muted-foreground text-lg leading-relaxed">{contrib.description}</p>
+                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed text-center sm:text-left">{contrib.description}</p>
                       </div>
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-3">
                         {contrib.contributions.map((item, itemIndex) => (
                           <span
                             key={item}
-                            className="px-6 py-3 bg-green-50 border border-green-200 text-green-700 rounded-full text-base font-semibold hover:bg-green-100 transition-colors duration-300"
+                            className="px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 bg-green-50 border border-green-200 text-green-700 rounded-full text-xs sm:text-sm lg:text-base font-semibold hover:bg-green-100 transition-colors duration-300"
                             style={{animationDelay: `${(index * 300) + (itemIndex * 100)}ms`}}
                           >
                             {item}
