@@ -160,14 +160,24 @@ export const Projects = () => {
                       <Button 
                         variant="outline" 
                         className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white"
-                        onClick={() => project.githubUrl && window.open(project.githubUrl, '_blank')}
+                        onClick={() => {
+                          console.log('GitHub URL:', project.githubUrl);
+                          if (project.githubUrl) {
+                            window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+                          }
+                        }}
                       >
                         <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                         Code
                       </Button>
                       <Button 
                         className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
-                        onClick={() => project.liveUrl && window.open(project.liveUrl, '_blank')}
+                        onClick={() => {
+                          console.log('Live URL:', project.liveUrl);
+                          if (project.liveUrl) {
+                            window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
+                          }
+                        }}
                       >
                         <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                         Demo
