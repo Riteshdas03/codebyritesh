@@ -20,7 +20,7 @@ export const Projects = () => {
       icon: "🚑",
       color: "from-red-500 to-pink-600",
       liveUrl: "https://medireachlifeline.netlify.app/",
-      githubUrl: "https://github.com/Riteshdas03/lifeline-reach-out"
+      githubUrl: "https://github.com/Riteshdas03/lifeline-"
     },
     {
       title: "API Testing with Postman",
