@@ -5,6 +5,24 @@ import { Button } from "@/components/ui/button";
 export const Projects = () => {
   const projects = [
     {
+      title: "MediReach – Lifeline Reach Out",
+      subtitle: "Essential Medical Services Platform",
+      description: "A platform that connects users to essential medical services efficiently and quickly.",
+      features: [
+        "Quick medical service access",
+        "Efficient service connections",
+        "User-friendly interface",
+        "Responsive design"
+      ],
+      techStack: ["React", "JavaScript", "CSS", "HTML"],
+      status: "Completed",
+      statusColor: "bg-green-100 text-green-600",
+      icon: "🚑",
+      color: "from-red-500 to-pink-600",
+      liveUrl: "https://medireachlifeline.netlify.app",
+      githubUrl: "https://github.com/Riteshdas03/lifeline-reach-out"
+    },
+    {
       title: "MediReach",
       subtitle: "Healthcare Accessibility Platform",
       description: "A real-world healthcare accessibility platform to help users locate free/affordable hospitals, blood banks, and emergency aid with real-time data.",
@@ -158,12 +176,14 @@ export const Projects = () => {
                       <Button 
                         variant="outline" 
                         className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white"
+                        onClick={() => project.githubUrl && window.open(project.githubUrl, '_blank')}
                       >
                         <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                         Code
                       </Button>
                       <Button 
                         className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+                        onClick={() => project.liveUrl && window.open(project.liveUrl, '_blank')}
                       >
                         <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                         Demo
