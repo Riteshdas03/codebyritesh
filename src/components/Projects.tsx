@@ -23,22 +23,6 @@ export const Projects = () => {
       githubUrl: "https://github.com/Riteshdas03/lifeline-reach-out"
     },
     {
-      title: "MediReach",
-      subtitle: "Healthcare Accessibility Platform",
-      description: "A real-world healthcare accessibility platform to help users locate free/affordable hospitals, blood banks, and emergency aid with real-time data.",
-      features: [
-        "Map-based search (Leaflet.js)",
-        "Multilingual UI",
-        "Mobile-first design",
-        "Real-time data integration"
-      ],
-      techStack: ["HTML", "CSS", "JavaScript", "Leaflet.js"],
-      status: "Work in Progress",
-      statusColor: "bg-orange-100 text-orange-600",
-      icon: "🩺",
-      color: "from-blue-500 to-blue-600"
-    },
-    {
       title: "API Testing with Postman",
       subtitle: "Automated API Testing Suite",
       description: "Created and validated APIs with token authentication and automated tests for various endpoints.",
