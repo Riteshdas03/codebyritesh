@@ -8,51 +8,68 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Futuristic Dark Theme Color Palette */
+    --background: 220 20% 4%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 30% 6%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 30% 6%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 216 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 216 100% 70%;
+    /* Neon Blue Primary */
+    --primary: 200 100% 60%;
+    --primary-foreground: 220 20% 4%;
+    --primary-glow: 200 100% 80%;
 
-    --secondary: 220 20% 96%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Dark Purple Secondary */
+    --secondary: 240 30% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 20% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 30% 10%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 264 84% 56%;
-    --accent-foreground: 0 0% 100%;
+    /* Neon Purple Accent */
+    --accent: 280 100% 70%;
+    --accent-foreground: 220 20% 4%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Neon Cyan */
+    --cyan: 180 100% 60%;
+    --cyan-foreground: 220 20% 4%;
+
+    /* Neon Pink */
+    --pink: 320 100% 70%;
+    --pink-foreground: 220 20% 4%;
+
+    --destructive: 0 75% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 30% 15%;
+    --input: 220 30% 12%;
+    --ring: 200 100% 60%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Gradient definitions */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--primary)));
-    --gradient-bg: linear-gradient(135deg, hsl(220 40% 98%), hsl(216 40% 94%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 20% 98%));
+    /* Futuristic Gradient Definitions */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--cyan)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--pink)));
+    --gradient-neon: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--cyan)), hsl(var(--pink)));
+    --gradient-bg: radial-gradient(ellipse at center, hsl(220 30% 8%), hsl(220 20% 4%));
+    --gradient-card: linear-gradient(135deg, hsl(220 30% 8%), hsl(220 25% 6%));
     
-    /* Shadow definitions */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
-    --shadow-soft: 0 4px 20px -4px hsl(220 20% 70% / 0.3);
+    /* Futuristic Shadow & Glow Definitions */
+    --shadow-neon: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.6);
+    --shadow-accent: 0 0 20px hsl(var(--accent) / 0.4);
+    --shadow-cyan: 0 0 20px hsl(var(--cyan) / 0.4);
+    --shadow-pink: 0 0 20px hsl(var(--pink) / 0.4);
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     
-    /* Animation definitions */
+    /* Smooth Animation Definitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-glow: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -64,61 +81,79 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
+  /* Default to dark theme always */
+  .dark, html {
+    /* Same as root - we want the futuristic dark theme by default */
+    --background: 220 20% 4%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 220 30% 6%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 220 30% 6%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 200 100% 60%;
+    --primary-foreground: 220 20% 4%;
+    --secondary: 240 30% 15%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --muted: 220 30% 10%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 280 100% 70%;
+    --accent-foreground: 220 20% 4%;
+    --destructive: 0 75% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 30% 15%;
+    --input: 220 30% 12%;
+    --ring: 200 100% 60%;
+    
+    --sidebar-background: 220 30% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 200 100% 60%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 240 30% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 30% 15%;
+    --sidebar-ring: 200 100% 60%;
   }
 }
 
-/* Custom utility classes for modern animations and effects */
+/* Futuristic utility classes for modern animations and effects */
 @layer utilities {
-  .glass-effect {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  .glass-morphism {
+    @apply bg-card/20 backdrop-blur-xl border border-white/10;
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-2xl border border-primary/20;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-cyan to-accent bg-clip-text text-transparent;
+  }
+  
+  .gradient-border {
+    background: var(--gradient-neon);
+    padding: 2px;
+    border-radius: inherit;
+  }
+  
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+  
+  .neon-glow-hover:hover {
+    box-shadow: var(--shadow-neon);
+    transform: translateY(-2px) scale(1.02);
+    transition: var(--transition-glow);
   }
   
   .floating {
     animation: float 6s ease-in-out infinite;
   }
   
-  .glow {
-    box-shadow: var(--shadow-glow);
+  .floating-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -2s;
   }
   
   .hover-lift {
@@ -126,15 +161,27 @@ All colors MUST be HSL.
   }
   
   .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-elegant);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-neon);
   }
   
-  .parallax-bg {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-glow);
+  }
+  
+  .particles-bg {
+    background-image: radial-gradient(2px 2px at 20px 30px, hsl(var(--primary)), transparent),
+                      radial-gradient(2px 2px at 40px 70px, hsl(var(--cyan)), transparent),
+                      radial-gradient(1px 1px at 90px 40px, hsl(var(--accent)), transparent),
+                      radial-gradient(1px 1px at 130px 80px, hsl(var(--pink)), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: particleMove 20s linear infinite;
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
   }
 }
 
@@ -144,7 +191,11 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-light;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    background: var(--gradient-bg);
+    min-height: 100vh;
   }
   
   html {
@@ -188,7 +239,7 @@ All colors MUST be HSL.
   }
 }
 
-/* Enhanced keyframes for modern animations */
+/* Futuristic keyframes for modern animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   33% { transform: translateY(-10px) rotate(1deg); }
@@ -200,9 +251,27 @@ All colors MUST be HSL.
   to { transform: rotate(360deg); }
 }
 
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 60px var(--primary); }
-  50% { box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary); }
+@keyframes particleMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+@keyframes neonPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5), 
+                0 0 40px hsl(var(--primary) / 0.3), 
+                0 0 60px hsl(var(--primary) / 0.1); 
+  }
+  50% { 
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.8), 
+                0 0 60px hsl(var(--primary) / 0.5), 
+                0 0 90px hsl(var(--primary) / 0.2); 
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @keyframes fadeInUp {
@@ -295,6 +364,15 @@ All colors MUST be HSL.
   animation: spin-slow 20s linear infinite;
 }
 
-.animate-glow {
-  animation: glow 2s ease-in-out infinite alternate;
+.animate-neon-pulse {
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+.animate-gradient-shift {
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.animate-particle-move {
+  animation: particleMove 20s linear infinite;
 }

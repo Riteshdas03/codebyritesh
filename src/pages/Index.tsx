@@ -11,16 +11,22 @@ import { Navbar } from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      <Navbar />
-      <Hero />
-      <About />
-      <Education />
-      <Skills />
-      <Certifications />
-      <Projects />
-      <Leadership />
-      <Contact />
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
+      {/* Animated particle background */}
+      <div className="fixed inset-0 particles-bg opacity-30 pointer-events-none" />
+      
+      {/* Main content */}
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <About />
+        <Education />
+        <Skills />
+        <Certifications />
+        <Projects />
+        <Leadership />
+        <Contact />
+      </div>
     </div>
   );
 };
