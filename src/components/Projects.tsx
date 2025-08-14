@@ -157,29 +157,33 @@ export const Projects = () => {
                     </Button>
                   ) : (
                     <>
-                      <Button 
-                        variant="outline" 
-                        className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105"
-                        onClick={() => {
-                          if (project.githubUrl) {
-                            window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
-                          }
-                        }}
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1"
                       >
-                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                        Code
-                      </Button>
-                      <Button 
-                        className="flex-1 h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold bg-gradient-to-r from-blue-500 to-violet-600 hover:from-blue-600 hover:to-violet-700 text-white transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105"
-                        onClick={() => {
-                          if (project.liveUrl) {
-                            window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
-                          }
-                        }}
+                        <Button 
+                          variant="outline" 
+                          className="w-full h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105"
+                        >
+                          <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+                          Code
+                        </Button>
+                      </a>
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1"
                       >
-                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                        Demo
-                      </Button>
+                        <Button 
+                          className="w-full h-10 sm:h-12 text-sm sm:text-base lg:text-lg font-semibold bg-gradient-to-r from-blue-500 to-violet-600 hover:from-blue-600 hover:to-violet-700 text-white transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105"
+                        >
+                          <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+                          Demo
+                        </Button>
+                      </a>
                     </>
                   )}
                 </div>
