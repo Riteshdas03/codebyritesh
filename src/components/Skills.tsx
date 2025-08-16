@@ -1,5 +1,6 @@
 
 import { Code, Cloud, Database, Settings } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const Skills = () => {
   const skillCategories = [
@@ -45,60 +46,153 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-white relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="skills" className="py-24 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 particles-bg opacity-20"></div>
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl floating"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl floating" style={{animationDelay: '3s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl floating" style={{animationDelay: '1.5s'}}></div>
+        <motion.div 
+          className="absolute top-10 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"
+          animate={{ 
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360]
+          }}
+          transition={{ 
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-10 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl"
+          animate={{ 
+            y: [0, 30, 0],
+            scale: [1, 0.8, 1],
+            rotate: [360, 180, 0]
+          }}
+          transition={{ 
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        />
+        <motion.div 
+          className="absolute top-1/2 left-1/3 w-64 h-64 bg-cyan/20 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, 50, 0],
+            y: [0, -25, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ 
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        />
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20" data-aos="fade-up">
-          <h2 className="text-5xl lg:text-6xl font-bold gradient-text mb-6">Skills & Expertise</h2>
-          <div className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2 
+            className="text-5xl lg:text-6xl font-bold font-display gradient-text mb-6"
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Skills & Expertise
+          </motion.h2>
+          <motion.div 
+            className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"
+            initial={{ width: 0 }}
+            whileInView={{ width: 128 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+          />
+          <motion.p 
+            className="text-xl text-muted-foreground max-w-3xl mx-auto text-shadow-glow"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
             Transforming ideas into reality with cutting-edge technologies and creative solutions
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20">
           {skillCategories.map((category, index) => (
-            <div
+            <motion.div
               key={category.title}
-              className="group hover-lift"
-              data-aos="zoom-in"
-              data-aos-delay={200 + (index * 100)}
+              className="group"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="relative bg-gradient-to-br from-white to-gray-50/80 p-6 sm:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 backdrop-blur-sm overflow-hidden">
-                {/* Background gradient effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative glass-card p-6 sm:p-8 rounded-3xl neon-glow-hover overflow-hidden border border-primary/20">
+                {/* Animated background gradient */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-br from-primary/10 via-cyan/10 to-accent/10 opacity-0 group-hover:opacity-100"
+                  initial={{ scale: 0, rotate: 0 }}
+                  whileHover={{ scale: 1, rotate: 5 }}
+                  transition={{ duration: 0.5 }}
+                />
                 
                 <div className="relative z-10">
-                  <div className={`bg-gradient-to-r ${category.color} text-white p-3 sm:p-4 rounded-2xl inline-block mb-4 sm:mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                  <motion.div 
+                    className={`bg-gradient-to-r ${category.color} text-white p-3 sm:p-4 rounded-2xl inline-block mb-4 sm:mb-6 shadow-neon`}
+                    whileHover={{ scale: 1.2, rotate: 12 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     {category.icon}
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6 group-hover:gradient-text transition-all duration-300">{category.title}</h3>
+                  </motion.div>
+                  <motion.h3 
+                    className="text-xl sm:text-2xl font-bold font-display text-foreground mb-4 sm:mb-6 group-hover:gradient-text transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {category.title}
+                  </motion.h3>
                   <div className="space-y-2 sm:space-y-3">
                     {category.skills.map((skill, skillIndex) => (
-                      <div 
+                      <motion.div 
                         key={skill} 
                         className="flex items-center group/skill"
-                        data-aos="fade-up"
-                        data-aos-delay={300 + (index * 100) + (skillIndex * 50)}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: (index * 0.1) + (skillIndex * 0.05) }}
+                        viewport={{ once: true }}
+                        whileHover={{ x: 10 }}
                       >
-                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-3 sm:mr-4 group-hover/skill:scale-150 transition-transform duration-300"></div>
-                        <span className="text-sm sm:text-base text-muted-foreground font-medium group-hover/skill:text-foreground hover:scale-105 transition-all duration-300">{skill}</span>
-                      </div>
+                        <motion.div 
+                          className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-3 sm:mr-4"
+                          whileHover={{ scale: 2, rotate: 180 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                        <span className="text-sm sm:text-base text-muted-foreground font-medium group-hover/skill:text-foreground group-hover/skill:gradient-text transition-all duration-300">{skill}</span>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
                 
-                {/* Shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+                {/* Animated shine effect */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full"
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
