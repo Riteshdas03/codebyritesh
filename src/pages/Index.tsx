@@ -11,9 +11,12 @@ import { Navbar } from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-x-hidden">
+    <div className="min-h-screen relative overflow-x-hidden">
+      {/* Main background gradient */}
+      <div className="fixed inset-0 section-bg" />
+      
       {/* Animated particle background */}
-      <div className="fixed inset-0 particles-bg opacity-30 pointer-events-none" />
+      <div className="fixed inset-0 particles-bg opacity-25 pointer-events-none" />
       
       {/* Main content */}
       <div className="relative z-10">

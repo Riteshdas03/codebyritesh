@@ -10,50 +10,38 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="section-min-height section-spacing relative overflow-hidden flex items-center">
       {/* Animated Background */}
-      <div className="absolute inset-0 particles-bg opacity-30"></div>
+      <div className="absolute inset-0 opacity-20"></div>
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-20 -left-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"
+          className="absolute top-20 -left-20 w-60 h-60 bg-primary/10 rounded-full blur-2xl"
           animate={{ 
-            y: [0, -20, 0],
-            scale: [1, 1.1, 1],
+            y: [0, -10, 0],
+            scale: [1, 1.05, 1],
           }}
           transition={{ 
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div 
-          className="absolute bottom-20 -right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+          className="absolute bottom-20 -right-20 w-72 h-72 bg-accent/10 rounded-full blur-2xl"
           animate={{ 
-            y: [0, 20, 0],
-            scale: [1, 0.9, 1],
-          }}
-          transition={{ 
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
-        <motion.div 
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan/20 rounded-full blur-3xl"
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.2, 1],
+            y: [0, 15, 0],
+            scale: [1, 0.95, 1],
           }}
           transition={{ 
             duration: 10,
             repeat: Infinity,
-            ease: "linear"
+            ease: "easeInOut",
+            delay: 3
           }}
         />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div 
           className="text-center mb-20"
           initial={{ opacity: 0, y: 50 }}

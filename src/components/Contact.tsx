@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
@@ -112,14 +113,22 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+    <section id="contact" className="section-min-height section-spacing relative overflow-hidden flex items-center">
       {/* Background decorations */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl floating"></div>
-        <div className="absolute bottom-20 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl floating" style={{animationDelay: '3s'}}></div>
+      <div className="absolute inset-0 overflow-hidden opacity-10">
+        <motion.div 
+          className="absolute top-20 -left-20 w-64 h-64 bg-primary/20 rounded-full blur-xl"
+          animate={{ y: [0, -10, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 -right-20 w-56 h-56 bg-accent/20 rounded-full blur-xl"
+          animate={{ y: [0, 15, 0], scale: [1, 0.9, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+        />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center mb-20" data-aos="fade-up">
           <h2 className="text-5xl lg:text-6xl font-bold gradient-text mb-6">Let's Connect</h2>
           <div className="w-32 h-2 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>

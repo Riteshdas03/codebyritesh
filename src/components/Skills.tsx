@@ -46,54 +46,38 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="section-min-height section-spacing relative overflow-hidden flex items-center">
       {/* Animated Background */}
-      <div className="absolute inset-0 particles-bg opacity-20"></div>
+      <div className="absolute inset-0 opacity-15"></div>
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-10 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-48 h-48 bg-primary/8 rounded-full blur-xl"
           animate={{ 
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360]
+            y: [0, -15, 0],
+            scale: [1, 1.1, 1],
           }}
           transition={{ 
-            duration: 8,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div 
-          className="absolute bottom-10 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-56 h-56 bg-accent/8 rounded-full blur-xl"
           animate={{ 
-            y: [0, 30, 0],
-            scale: [1, 0.8, 1],
-            rotate: [360, 180, 0]
+            y: [0, 20, 0],
+            scale: [1, 0.9, 1],
           }}
           transition={{ 
-            duration: 10,
+            duration: 15,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 3
-          }}
-        />
-        <motion.div 
-          className="absolute top-1/2 left-1/3 w-64 h-64 bg-cyan/20 rounded-full blur-3xl"
-          animate={{ 
-            x: [0, 50, 0],
-            y: [0, -25, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.5
+            delay: 5
           }}
         />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div 
           className="text-center mb-20"
           initial={{ opacity: 0, y: 50 }}
