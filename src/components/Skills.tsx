@@ -51,28 +51,26 @@ export const Skills = () => {
       <div className="absolute inset-0 opacity-15"></div>
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-10 left-10 w-48 h-48 bg-primary/8 rounded-full blur-xl"
+          className="absolute top-10 left-10 w-32 h-32 lg:w-48 lg:h-48 bg-primary/4 lg:bg-primary/8 rounded-full blur-lg lg:blur-xl"
           animate={{ 
-            y: [0, -15, 0],
-            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{ 
-            duration: 12,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div 
-          className="absolute bottom-10 right-10 w-56 h-56 bg-accent/8 rounded-full blur-xl"
+          className="absolute bottom-10 right-10 w-40 h-40 lg:w-56 lg:h-56 bg-accent/4 lg:bg-accent/8 rounded-full blur-lg lg:blur-xl"
           animate={{ 
-            y: [0, 20, 0],
-            scale: [1, 0.9, 1],
+            opacity: [0.5, 0.8, 0.5],
           }}
           transition={{ 
-            duration: 15,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 5
+            delay: 2
           }}
         />
       </div>
@@ -122,7 +120,7 @@ export const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -4, scale: 1.01 }}
             >
               <div className="relative glass-card p-6 sm:p-8 rounded-3xl neon-glow-hover overflow-hidden border border-primary/20">
                 {/* Animated background gradient */}

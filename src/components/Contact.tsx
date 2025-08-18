@@ -117,14 +117,14 @@ export const Contact = () => {
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
         <motion.div 
-          className="absolute top-20 -left-20 w-64 h-64 bg-primary/20 rounded-full blur-xl"
-          animate={{ y: [0, -10, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 -left-20 w-40 h-40 lg:w-64 lg:h-64 bg-primary/10 lg:bg-primary/20 rounded-full blur-lg lg:blur-xl"
+          animate={{ opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 -right-20 w-56 h-56 bg-accent/20 rounded-full blur-xl"
-          animate={{ y: [0, 15, 0], scale: [1, 0.9, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute bottom-20 -right-20 w-36 h-36 lg:w-56 lg:h-56 bg-accent/10 lg:bg-accent/20 rounded-full blur-lg lg:blur-xl"
+          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
       

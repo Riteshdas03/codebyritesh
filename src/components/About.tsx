@@ -15,28 +15,26 @@ export const About = () => {
       <div className="absolute inset-0 opacity-20"></div>
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-20 -left-20 w-60 h-60 bg-primary/10 rounded-full blur-2xl"
+          className="absolute top-20 -left-20 w-40 h-40 lg:w-60 lg:h-60 bg-primary/5 lg:bg-primary/10 rounded-full blur-xl lg:blur-2xl"
           animate={{ 
-            y: [0, -10, 0],
-            scale: [1, 1.05, 1],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{ 
-            duration: 8,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div 
-          className="absolute bottom-20 -right-20 w-72 h-72 bg-accent/10 rounded-full blur-2xl"
+          className="absolute bottom-20 -right-20 w-48 h-48 lg:w-72 lg:h-72 bg-accent/5 lg:bg-accent/10 rounded-full blur-xl lg:blur-2xl"
           animate={{ 
-            y: [0, 15, 0],
-            scale: [1, 0.95, 1],
+            opacity: [0.5, 0.8, 0.5],
           }}
           transition={{ 
-            duration: 10,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 3
+            delay: 2
           }}
         />
       </div>
@@ -142,7 +140,7 @@ export const About = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
                       viewport={{ once: true }}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                     >
                       <div className="flex items-center space-x-3">
                         <motion.div 
@@ -185,7 +183,7 @@ export const About = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
                       viewport={{ once: true }}
-                      whileHover={{ scale: 1.05, y: -5 }}
+                      whileHover={{ scale: 1.02, y: -2 }}
                     >
                       <motion.div 
                         className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-3"

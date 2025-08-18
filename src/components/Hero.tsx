@@ -11,41 +11,42 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Futuristic Background decorations */}
+      {/* Mobile-optimized Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/40 to-cyan/40 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 4, repeat: Infinity }}
+          className="absolute top-20 left-10 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-r from-primary/20 to-cyan/20 lg:from-primary/40 lg:to-cyan/40 rounded-full blur-xl lg:blur-3xl"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 6, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-accent/40 to-pink/40 rounded-full blur-3xl"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+          className="absolute bottom-20 right-10 w-56 h-56 lg:w-80 lg:h-80 bg-gradient-to-r from-accent/20 to-pink/20 lg:from-accent/40 lg:to-pink/40 rounded-full blur-xl lg:blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, delay: 2 }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-cyan/30 to-primary/30 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 6, repeat: Infinity, delay: 0.5 }}
+          className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-cyan/30 to-primary/30 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, delay: 1 }}
         />
         
-        {/* Floating neon geometric shapes */}
+        {/* Simplified floating elements for mobile */}
         <motion.div 
-          className="absolute top-1/4 right-1/4 w-4 h-4 bg-gradient-to-r from-primary to-accent rounded-full neon-glow"
-          animate={{ y: [-10, 10, -10], rotate: [0, 180, 360] }}
-          transition={{ duration: 3, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute bottom-1/3 left-1/4 w-6 h-6 bg-gradient-to-r from-pink to-cyan rotate-45"
-          animate={{ y: [10, -10, 10], rotate: [45, 225, 405] }}
+          className="hidden lg:block absolute top-1/4 right-1/4 w-4 h-4 bg-gradient-to-r from-primary to-accent rounded-full"
+          animate={{ y: [-5, 5, -5] }}
           transition={{ duration: 4, repeat: Infinity }}
-          style={{ boxShadow: '0 0 20px hsl(var(--pink) / 0.5)' }}
+          style={{ boxShadow: '0 0 10px hsl(var(--primary) / 0.3)' }}
         />
         <motion.div 
-          className="absolute top-1/3 left-1/5 w-3 h-3 bg-gradient-to-r from-cyan to-primary rounded-full"
-          animate={{ y: [-5, 15, -5], scale: [1, 1.5, 1] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-          style={{ boxShadow: '0 0 15px hsl(var(--cyan) / 0.6)' }}
+          className="hidden lg:block absolute bottom-1/3 left-1/4 w-6 h-6 bg-gradient-to-r from-pink to-cyan rotate-45"
+          animate={{ y: [5, -5, 5] }}
+          transition={{ duration: 5, repeat: Infinity }}
+          style={{ boxShadow: '0 0 15px hsl(var(--pink) / 0.4)' }}
+        />
+        <motion.div 
+          className="absolute top-1/3 left-1/5 w-2 h-2 lg:w-3 lg:h-3 bg-primary rounded-full lg:bg-gradient-to-r lg:from-cyan lg:to-primary"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          style={{ boxShadow: '0 0 8px hsl(var(--primary) / 0.4)' }}
         />
       </div>
 
@@ -154,39 +155,39 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 onClick={() => scrollToSection("projects")}
-                className="group bg-gradient-to-r from-primary to-cyan hover:from-primary/80 hover:to-cyan/80 text-primary-foreground px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-cyan/25 hover:shadow-2xl border-0 text-base font-semibold neon-glow-hover"
+                className="group bg-gradient-to-r from-primary to-cyan hover:from-primary/90 hover:to-cyan/90 text-primary-foreground px-6 lg:px-8 py-3 lg:py-4 rounded-full text-sm lg:text-base font-semibold will-change-transform"
                 size="lg"
               >
-                <Rocket className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                <Rocket className="mr-2 h-4 w-4 lg:h-5 lg:w-5" />
                 View Projects
               </Button>
             </motion.div>
             
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 variant="outline"
                 asChild
-                className="group glass-morphism border-2 border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/25 hover:shadow-xl text-base font-semibold"
+                className="group glass-morphism border border-primary/30 text-primary hover:bg-primary/10 px-6 lg:px-8 py-3 lg:py-4 rounded-full text-sm lg:text-base font-semibold will-change-transform"
                 size="lg"
               >
                 <a href="https://app.luminpdf.com/viewer/686613a093f47a455edc012e" target="_blank" rel="noopener noreferrer">
-                  <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                  <Download className="mr-2 h-4 w-4 lg:h-5 lg:w-5" />
                   View Resume
                 </a>
               </Button>
             </motion.div>
             
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 variant="outline"
                 onClick={() => scrollToSection("contact")}
-                className="group glass-morphism border-2 border-accent/30 text-accent hover:bg-accent/10 hover:border-accent/50 px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-accent/25 hover:shadow-xl text-base font-semibold"
+                className="group glass-morphism border border-accent/30 text-accent hover:bg-accent/10 px-6 lg:px-8 py-3 lg:py-4 rounded-full text-sm lg:text-base font-semibold will-change-transform"
                 size="lg"
               >
-                <Mail className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                <Mail className="mr-2 h-4 w-4 lg:h-5 lg:w-5" />
                 Contact Me
               </Button>
             </motion.div>
@@ -201,18 +202,18 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div className="relative group">
-            {/* Neon outer glow effect */}
+            {/* Mobile-optimized glow effect */}
             <motion.div 
-              className="absolute -inset-4 bg-gradient-to-r from-primary via-accent to-cyan rounded-full blur-2xl opacity-40"
-              animate={{ opacity: [0.4, 0.7, 0.4], scale: [1, 1.1, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute -inset-2 lg:-inset-4 bg-gradient-to-r from-primary via-accent to-cyan rounded-full blur-xl lg:blur-2xl opacity-20 lg:opacity-40"
+              animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.05, 1] }}
+              transition={{ duration: 4, repeat: Infinity }}
             />
             
-            {/* Main futuristic image container */}
+            {/* Mobile-optimized image container */}
             <motion.div 
-              className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-primary via-accent to-pink p-1 shadow-2xl"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-primary via-accent to-pink p-1 shadow-xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             >
               <div className="w-full h-full rounded-full glass-morphism p-2">
                 <img 
@@ -223,46 +224,39 @@ export const Hero = () => {
               </div>
             </motion.div>
             
-            {/* Futuristic floating elements */}
+            {/* Simplified floating elements */}
             <motion.div 
-              className="absolute -top-4 -right-4 bg-gradient-to-r from-cyan to-primary text-primary-foreground p-4 rounded-full shadow-xl"
-              animate={{ y: [-5, 5, -5], rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              style={{ boxShadow: '0 0 20px hsl(var(--cyan) / 0.6)' }}
+              className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 bg-gradient-to-r from-cyan to-primary text-primary-foreground p-2 lg:p-4 rounded-full shadow-lg"
+              animate={{ y: [-3, 3, -3] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              style={{ boxShadow: '0 0 15px hsl(var(--cyan) / 0.4)' }}
             >
-              <Rocket size={20} />
+              <Rocket size={16} className="lg:w-5 lg:h-5" />
             </motion.div>
             <motion.div 
-              className="absolute -bottom-4 -left-4 bg-gradient-to-r from-accent to-pink text-accent-foreground p-4 rounded-full shadow-xl text-xl"
-              animate={{ y: [5, -5, 5], rotate: [0, -10, 10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-              style={{ boxShadow: '0 0 20px hsl(var(--accent) / 0.6)' }}
+              className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 bg-gradient-to-r from-accent to-pink text-accent-foreground p-2 lg:p-4 rounded-full shadow-lg text-base lg:text-xl"
+              animate={{ y: [3, -3, 3] }}
+              transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+              style={{ boxShadow: '0 0 15px hsl(var(--accent) / 0.4)' }}
             >
               ☁️
             </motion.div>
             <motion.div 
-              className="absolute top-8 -left-8 bg-gradient-to-r from-primary to-cyan text-primary-foreground p-3 rounded-full shadow-lg"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-              style={{ boxShadow: '0 0 15px hsl(var(--primary) / 0.5)' }}
+              className="hidden lg:block absolute top-8 -left-8 bg-gradient-to-r from-primary to-cyan text-primary-foreground p-3 rounded-full shadow-lg"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+              style={{ boxShadow: '0 0 12px hsl(var(--primary) / 0.4)' }}
             >
               <Code size={16} />
             </motion.div>
             
-            {/* Orbiting neon elements */}
+            {/* Simplified orbiting elements - desktop only */}
             <motion.div 
-              className="absolute inset-0"
+              className="hidden lg:block absolute inset-0"
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             >
-              <div className="absolute top-4 left-1/2 w-3 h-3 bg-gradient-to-r from-cyan to-primary rounded-full" style={{ boxShadow: '0 0 10px hsl(var(--cyan))' }}></div>
-            </motion.div>
-            <motion.div 
-              className="absolute inset-0"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            >
-              <div className="absolute top-8 left-1/2 w-2 h-2 bg-gradient-to-r from-pink to-accent rounded-full" style={{ boxShadow: '0 0 8px hsl(var(--pink))' }}></div>
+              <div className="absolute top-4 left-1/2 w-2 h-2 bg-primary rounded-full" style={{ boxShadow: '0 0 8px hsl(var(--primary) / 0.5)' }}></div>
             </motion.div>
           </div>
         </motion.div>

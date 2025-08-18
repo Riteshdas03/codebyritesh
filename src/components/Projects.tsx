@@ -62,10 +62,9 @@ export const Projects = () => {
       <div className="absolute inset-0 particles-bg opacity-30"></div>
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-20 -left-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"
+          className="absolute top-20 -left-20 w-48 h-48 lg:w-80 lg:h-80 bg-primary/10 lg:bg-primary/20 rounded-full blur-xl lg:blur-3xl"
           animate={{ 
-            y: [0, -20, 0],
-            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.5, 0.2],
           }}
           transition={{ 
             duration: 6,
@@ -74,16 +73,15 @@ export const Projects = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-20 -right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+          className="absolute bottom-20 -right-20 w-56 h-56 lg:w-96 lg:h-96 bg-accent/10 lg:bg-accent/20 rounded-full blur-xl lg:blur-3xl"
           animate={{ 
-            y: [0, 20, 0],
-            scale: [1, 0.9, 1],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{ 
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 1
           }}
         />
       </div>
@@ -134,7 +132,7 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -4, scale: 1.01 }}
             >
               <div className="glass-card rounded-3xl neon-glow-hover overflow-hidden border border-primary/20 h-full">
                 {/* Animated background gradient */}

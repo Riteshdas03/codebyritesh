@@ -58,18 +58,18 @@ All colors MUST be HSL.
     --gradient-bg: radial-gradient(ellipse at center, hsl(220 30% 8%), hsl(220 20% 4%));
     --gradient-card: linear-gradient(135deg, hsl(220 30% 8%), hsl(220 25% 6%));
     
-    /* Futuristic Shadow & Glow Definitions */
-    --shadow-neon: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.6);
-    --shadow-accent: 0 0 20px hsl(var(--accent) / 0.4);
-    --shadow-cyan: 0 0 20px hsl(var(--cyan) / 0.4);
-    --shadow-pink: 0 0 20px hsl(var(--pink) / 0.4);
-    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+/* Performance-optimized Shadow & Glow Definitions */
+    --shadow-neon: 0 0 20px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.4);
+    --shadow-accent: 0 0 15px hsl(var(--accent) / 0.3);
+    --shadow-cyan: 0 0 15px hsl(var(--cyan) / 0.3);
+    --shadow-pink: 0 0 15px hsl(var(--pink) / 0.3);
+    --shadow-glass: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
     
-    /* Smooth Animation Definitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-glow: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Performance-optimized Animation Definitions */
+    --transition-smooth: transform 0.2s ease-out, opacity 0.2s ease-out;
+    --transition-bounce: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-glow: box-shadow 0.2s ease-out;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -115,16 +115,35 @@ All colors MUST be HSL.
   }
 }
 
-/* Futuristic utility classes for modern animations and effects */
+/* Mobile-first optimized utility classes for performance */
 @layer utilities {
   .glass-morphism {
-    @apply bg-card/20 backdrop-blur-xl border border-white/10;
-    box-shadow: var(--shadow-glass);
+    @apply bg-card/20 border border-white/10;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+    will-change: transform, opacity;
   }
   
   .glass-card {
-    @apply bg-card/40 backdrop-blur-2xl border border-primary/20;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @apply bg-card/30 border border-primary/20;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+    will-change: transform, opacity;
+  }
+
+  /* Mobile-optimized glass effects */
+  @media (max-width: 768px) {
+    .glass-morphism {
+      backdrop-filter: blur(4px);
+      background: hsl(var(--card) / 0.3);
+      box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.15);
+    }
+    
+    .glass-card {
+      backdrop-filter: blur(6px);
+      background: hsl(var(--card) / 0.4);
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    }
   }
   
   .gradient-text {
@@ -138,13 +157,26 @@ All colors MUST be HSL.
   }
   
   .neon-glow {
-    box-shadow: var(--shadow-neon);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    will-change: transform, opacity;
   }
   
   .neon-glow-hover:hover {
-    box-shadow: var(--shadow-neon);
-    transform: translateY(-2px) scale(1.02);
-    transition: var(--transition-glow);
+    box-shadow: 0 0 25px hsl(var(--primary) / 0.4);
+    transform: translateY(-4px) scale(1.01);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+
+  /* Mobile-optimized hover effects */
+  @media (max-width: 768px) {
+    .neon-glow {
+      box-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+    }
+    
+    .neon-glow-hover:hover {
+      box-shadow: 0 0 15px hsl(var(--primary) / 0.3);
+      transform: translateY(-2px);
+    }
   }
   
   .floating {
@@ -157,27 +189,45 @@ All colors MUST be HSL.
   }
   
   .hover-lift {
-    transition: var(--transition-smooth);
+    transition: transform 0.2s ease-out;
+    will-change: transform;
   }
   
   .hover-lift:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-neon);
+    transform: translateY(-4px) scale(1.01);
   }
   
   .hover-glow:hover {
-    box-shadow: var(--shadow-glow);
-    transition: var(--transition-glow);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    transition: box-shadow 0.2s ease-out;
+  }
+
+  /* Mobile-optimized interactions */
+  @media (max-width: 768px) {
+    .hover-lift:hover {
+      transform: translateY(-2px);
+    }
+    
+    .hover-glow:hover {
+      box-shadow: 0 0 15px hsl(var(--primary) / 0.25);
+    }
   }
   
   .particles-bg {
-    background-image: radial-gradient(2px 2px at 20px 30px, hsl(var(--primary)), transparent),
-                      radial-gradient(2px 2px at 40px 70px, hsl(var(--cyan)), transparent),
-                      radial-gradient(1px 1px at 90px 40px, hsl(var(--accent)), transparent),
-                      radial-gradient(1px 1px at 130px 80px, hsl(var(--pink)), transparent);
+    background-image: radial-gradient(1px 1px at 20px 30px, hsl(var(--primary) / 0.6), transparent),
+                      radial-gradient(1px 1px at 40px 70px, hsl(var(--cyan) / 0.6), transparent);
     background-repeat: repeat;
-    background-size: 200px 200px;
-    animation: particleMove 20s linear infinite;
+    background-size: 100px 100px;
+    animation: particleMove 30s linear infinite;
+    will-change: background-position;
+  }
+
+  /* Disable particles on mobile for performance */
+  @media (max-width: 768px) {
+    .particles-bg {
+      background-image: none;
+      animation: none;
+    }
   }
   
   .text-shadow-glow {
@@ -202,7 +252,7 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
   
-  /* Mobile-first responsive breakpoints */
+  /* Mobile-first responsive breakpoints with performance optimizations */
   @media (max-width: 640px) {
     .container {
       padding-left: 1rem;
@@ -211,14 +261,34 @@ All colors MUST be HSL.
     
     /* Better mobile spacing */
     section {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
     
     /* Touch-friendly buttons */
     button, a[role="button"] {
       min-height: 44px;
       min-width: 44px;
+    }
+
+    /* Reduce motion for better performance */
+    * {
+      animation-duration: 0.2s !important;
+      transition-duration: 0.2s !important;
+    }
+
+    /* Disable heavy effects on mobile */
+    .floating,
+    .floating-delayed {
+      animation: none;
+    }
+
+    /* Simplified gradients for mobile */
+    .gradient-text {
+      background: hsl(var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 
@@ -239,11 +309,10 @@ All colors MUST be HSL.
   }
 }
 
-/* Futuristic keyframes for modern animations */
+/* Mobile-optimized keyframes for smooth animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-10px) rotate(1deg); }
-  66% { transform: translateY(5px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes spin-slow {
@@ -258,14 +327,10 @@ All colors MUST be HSL.
 
 @keyframes neonPulse {
   0%, 100% { 
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5), 
-                0 0 40px hsl(var(--primary) / 0.3), 
-                0 0 60px hsl(var(--primary) / 0.1); 
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.3);
   }
   50% { 
-    box-shadow: 0 0 30px hsl(var(--primary) / 0.8), 
-                0 0 60px hsl(var(--primary) / 0.5), 
-                0 0 90px hsl(var(--primary) / 0.2); 
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
   }
 }
 
@@ -335,23 +400,37 @@ All colors MUST be HSL.
 }
 
 .animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .animate-fadeInLeft {
-  animation: fadeInLeft 0.6s ease-out forwards;
+  animation: fadeInLeft 0.4s ease-out forwards;
 }
 
 .animate-fadeInRight {
-  animation: fadeInRight 0.6s ease-out forwards;
+  animation: fadeInRight 0.4s ease-out forwards;
 }
 
 .animate-scaleIn {
-  animation: scaleIn 0.5s ease-out forwards;
+  animation: scaleIn 0.3s ease-out forwards;
 }
 
 .animate-slideInBottom {
-  animation: slideInBottom 0.6s ease-out forwards;
+  animation: slideInBottom 0.4s ease-out forwards;
+}
+
+/* Mobile animation adjustments */
+@media (max-width: 768px) {
+  .animate-fadeInUp,
+  .animate-fadeInLeft,
+  .animate-fadeInRight,
+  .animate-slideInBottom {
+    animation-duration: 0.2s;
+  }
+  
+  .animate-scaleIn {
+    animation-duration: 0.2s;
+  }
 }
 
 .animate-shimmer {
