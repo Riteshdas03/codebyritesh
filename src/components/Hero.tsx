@@ -262,20 +262,24 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Futuristic scroll indicator */}
+      {/* Interactive scroll indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1 }}
+        onClick={() => scrollToSection("about")}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <span className="text-sm text-muted-foreground font-medium font-mono">// scroll to explore</span>
+        <span className="text-xs sm:text-sm text-muted-foreground font-medium font-mono group-hover:text-primary transition-colors duration-300">// scroll to explore</span>
         <motion.div 
-          className="glass-morphism rounded-full p-3 border border-primary/30"
-          animate={{ y: [0, 10, 0] }}
+          className="glass-morphism rounded-full p-2 sm:p-3 border border-primary/30 group-hover:border-primary/60 transition-all duration-300 neon-glow-hover"
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
+          whileHover={{ y: 0 }}
         >
-          <ArrowDown className="text-primary" size={20} />
+          <ArrowDown className="text-primary w-4 h-4 sm:w-5 sm:h-5 group-hover:animate-pulse" />
         </motion.div>
       </motion.div>
     </section>
