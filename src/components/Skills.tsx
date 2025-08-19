@@ -196,7 +196,7 @@ export const Skills = () => {
                   data-aos-delay={700 + (index * 50)}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span className="relative bg-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full shadow-lg font-semibold text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 block text-sm sm:text-base">
+                  <span className="relative bg-background/90 backdrop-blur-sm border border-primary/20 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full shadow-lg font-semibold text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 block text-sm sm:text-base">
                     {concept}
                   </span>
                 </div>
