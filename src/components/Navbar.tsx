@@ -44,9 +44,22 @@ export const Navbar = () => {
   }, [navItems]);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    // Close mobile menu immediately
     setIsMobileMenuOpen(false);
+    
+    // Small delay to ensure menu closes before scrolling
+    setTimeout(() => {
+      const elementId = href.substring(1); // Remove the # symbol
+      const element = document.getElementById(elementId);
+      if (element) {
+        // Account for fixed navbar height
+        const offsetTop = element.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      }
+    }, 100);
   };
 
   return (
