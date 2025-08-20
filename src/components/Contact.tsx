@@ -141,10 +141,10 @@ export const Contact = () => {
           {/* Contact Form */}
           <div data-aos="fade-right" data-aos-delay="200">
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 rounded-2xl shadow-lg">
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Send me a message</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4 sm:mb-6">Send me a message</h3>
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div data-aos="fade-up" data-aos-delay="300">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-2">
                     Your Name
                   </label>
                   <Input
@@ -159,7 +159,7 @@ export const Contact = () => {
                   />
                 </div>
                 <div data-aos="fade-up" data-aos-delay="400">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
                     Email Address
                   </label>
                   <Input
@@ -174,7 +174,7 @@ export const Contact = () => {
                   />
                 </div>
                 <div data-aos="fade-up" data-aos-delay="500">
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground mb-2">
                     Subject
                   </label>
                   <Input
@@ -189,7 +189,7 @@ export const Contact = () => {
                   />
                 </div>
                 <div data-aos="fade-up" data-aos-delay="600">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">
                     Message
                   </label>
                   <Textarea
@@ -221,7 +221,7 @@ export const Contact = () => {
             <div className="space-y-6 sm:space-y-8">
               {/* Direct Contact */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Get in Touch</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4 sm:mb-6">Get in Touch</h3>
                 <div className="space-y-3 sm:space-y-4">
                   {contactInfo.map((contact, index) => (
                     <a
@@ -235,8 +235,8 @@ export const Contact = () => {
                         {contact.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium text-gray-900 text-sm sm:text-base">{contact.label}</p>
-                        <p className="text-gray-600 text-sm sm:text-base break-all">{contact.value}</p>
+                        <p className="font-medium text-foreground text-sm sm:text-base">{contact.label}</p>
+                        <p className="text-muted-foreground text-sm sm:text-base break-all">{contact.value}</p>
                       </div>
                     </a>
                   ))}
@@ -245,7 +245,7 @@ export const Contact = () => {
 
               {/* Social Links */}
               <div data-aos="fade-left" data-aos-delay="600">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">Find me online</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4 sm:mb-6">Find me online</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {socialLinks.map((social, index) => (
                     <a
@@ -257,12 +257,12 @@ export const Contact = () => {
                       data-aos="zoom-in"
                       data-aos-delay={700 + (index * 100)}
                     >
-                      <div className="mr-2 sm:mr-3 text-gray-600 flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
+                      <div className="mr-2 sm:mr-3 text-muted-foreground flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
                         {social.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium text-gray-900 text-sm sm:text-base">{social.label}</p>
-                        <p className="text-xs sm:text-sm text-gray-600 break-all">{social.value}</p>
+                        <p className="font-medium text-foreground text-sm sm:text-base">{social.label}</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground break-all">{social.value}</p>
                       </div>
                     </a>
                   ))}
