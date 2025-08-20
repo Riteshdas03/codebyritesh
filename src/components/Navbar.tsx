@@ -64,7 +64,9 @@ export const Navbar = () => {
       <motion.div
         className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-cyan to-accent"
         style={{ 
-          width: `${Math.min((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100)}%` 
+          width: typeof window !== 'undefined' 
+            ? `${Math.min((window.scrollY / Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)) * 100, 100)}%` 
+            : '0%'
         }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
@@ -114,8 +116,9 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 -mr-2 touch-manipulation text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-3 -mr-2 touch-manipulation text-foreground hover:text-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onTouchStart={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -163,7 +166,8 @@ export const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * index, duration: 0.3 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-3 sm:py-2 text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 font-medium touch-manipulation"
+                  onTouchStart={() => scrollToSection(item.href)}
+                  className="block w-full text-left px-6 py-4 text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 font-medium touch-manipulation min-h-[48px] flex items-center"
                   whileHover={{ x: 10 }}
                   whileTap={{ scale: 0.98 }}
                 >
