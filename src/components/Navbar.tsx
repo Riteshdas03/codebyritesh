@@ -20,28 +20,54 @@ export const Navbar = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      
-      // Update active section based on scroll position
-      const sections = navItems.map(item => item.href.substring(1));
-      const scrollPosition = window.scrollY + 100;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
+    // Cache section elements once for performance
+    const sectionEls = navItems
+      .map((item) => document.getElementById(item.href.substring(1)))
+      .filter(Boolean) as HTMLElement[];
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 20);
+
+        const scrollPosition = window.scrollY + 100;
+        for (const el of sectionEls) {
+          const { offsetTop, offsetHeight, id } = el;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(id);
             break;
           }
         }
-      }
+        ticking = false;
+      });
     };
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [navItems]);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Run once to set initial state
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll as any);
+    // nav items are static; avoid re-attaching on each render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Lock background scroll when mobile menu is open to prevent glitches
+  useEffect(() => {
+    const prevOverflow = document.body.style.overflow;
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isMobileMenuOpen]);
 
   const scrollToSection = (href: string) => {
     // Close mobile menu immediately
@@ -131,7 +157,6 @@ export const Navbar = () => {
           <motion.button
             className="md:hidden p-3 -mr-2 touch-manipulation text-foreground hover:text-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            onTouchStart={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -179,7 +204,6 @@ export const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * index, duration: 0.3 }}
                   onClick={() => scrollToSection(item.href)}
-                  onTouchStart={() => scrollToSection(item.href)}
                   className="block w-full text-left px-6 py-4 text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 font-medium touch-manipulation min-h-[48px] flex items-center"
                   whileHover={{ x: 10 }}
                   whileTap={{ scale: 0.98 }}
