@@ -113,17 +113,17 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-min-height section-spacing relative overflow-hidden flex items-center">
+    <section id="contact" className="py-20 lg:py-32 relative overflow-hidden min-h-screen flex items-center">
       {/* Background decorations */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
+      <div className="absolute inset-0 overflow-hidden opacity-20">
         <motion.div 
-          className="absolute top-20 -left-20 w-40 h-40 lg:w-64 lg:h-64 bg-primary/10 lg:bg-primary/20 rounded-full blur-lg lg:blur-xl"
-          animate={{ opacity: [0.2, 0.5, 0.2] }}
+          className="absolute top-20 -left-20 w-40 h-40 lg:w-64 lg:h-64 bg-primary/20 rounded-full blur-xl"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 -right-20 w-36 h-36 lg:w-56 lg:h-56 bg-accent/10 lg:bg-accent/20 rounded-full blur-lg lg:blur-xl"
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          className="absolute bottom-20 -right-20 w-36 h-36 lg:w-56 lg:h-56 bg-accent/20 rounded-full blur-xl"
+          animate={{ opacity: [0.4, 0.8, 0.4] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
@@ -140,8 +140,8 @@ export const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Form */}
           <div data-aos="fade-right" data-aos-delay="200">
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 rounded-2xl shadow-lg">
-              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4 sm:mb-6">Send me a message</h3>
+            <div className="bg-card border border-border p-6 sm:p-8 rounded-2xl shadow-lg backdrop-blur-sm">
+              <h3 className="text-xl sm:text-2xl font-semibold text-card-foreground mb-4 sm:mb-6">Send me a message</h3>
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div data-aos="fade-up" data-aos-delay="300">
                   <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-2">
@@ -206,7 +206,7 @@ export const Contact = () => {
                 <Button 
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 sm:py-4 rounded-full transition-all duration-300 hover:animate-pulse disabled:opacity-50 h-12 sm:h-14 text-sm sm:text-base"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 sm:py-4 rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 h-12 sm:h-14 text-sm sm:text-base font-semibold"
                   data-aos="zoom-in"
                   data-aos-delay="700"
                 >
@@ -227,15 +227,15 @@ export const Contact = () => {
                     <a
                       key={contact.label}
                       href={contact.href}
-                      className="flex items-center p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:shadow-md hover:scale-105 transition-all duration-300"
+                      className="flex items-center p-3 sm:p-4 bg-card border border-border rounded-xl hover:shadow-md hover:scale-105 transition-all duration-300 backdrop-blur-sm"
                       data-aos="fade-left"
                       data-aos-delay={400 + (index * 100)}
                     >
-                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
+                      <div className="bg-primary text-primary-foreground p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
                         {contact.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium text-foreground text-sm sm:text-base">{contact.label}</p>
+                        <p className="font-medium text-card-foreground text-sm sm:text-base">{contact.label}</p>
                         <p className="text-muted-foreground text-sm sm:text-base break-all">{contact.value}</p>
                       </div>
                     </a>
@@ -253,15 +253,15 @@ export const Contact = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center p-3 sm:p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105 ${social.color}`}
+                      className="flex items-center p-3 sm:p-4 bg-card border border-border rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105 hover:bg-accent/10 backdrop-blur-sm"
                       data-aos="zoom-in"
                       data-aos-delay={700 + (index * 100)}
                     >
-                      <div className="mr-2 sm:mr-3 text-muted-foreground flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
+                      <div className="mr-2 sm:mr-3 text-primary flex-shrink-0 hover:scale-110 hover:rotate-12 transition-all duration-300">
                         {social.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium text-foreground text-sm sm:text-base">{social.label}</p>
+                        <p className="font-medium text-card-foreground text-sm sm:text-base">{social.label}</p>
                         <p className="text-xs sm:text-sm text-muted-foreground break-all">{social.value}</p>
                       </div>
                     </a>
@@ -271,18 +271,17 @@ export const Contact = () => {
 
               {/* Call to Action */}
               <div 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 sm:p-8 rounded-2xl text-white"
+                className="bg-primary/10 border border-primary/20 p-6 sm:p-8 rounded-2xl backdrop-blur-sm"
                 data-aos="fade-up"
                 data-aos-delay="900"
               >
-                <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Ready to collaborate?</h4>
-                <p className="text-blue-100 mb-4 sm:mb-6 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-primary">Ready to collaborate?</h4>
+                <p className="text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base">
                   Whether you have a project in mind, want to discuss opportunities, or just want to connect, 
                   I'm always open to meaningful conversations.
                 </p>
                 <Button
-                  variant="secondary"
-                  className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 hover:animate-pulse px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300 font-semibold"
                   data-aos="zoom-in"
                   data-aos-delay="1000"
                 >
