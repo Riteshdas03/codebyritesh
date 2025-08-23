@@ -33,36 +33,36 @@ export const Leadership = () => {
   ];
 
   return (
-    <section id="leadership" className="section-min-height section-spacing relative overflow-hidden flex items-center">
+    <section id="leadership" className="section-min-height section-spacing relative overflow-hidden">
       {/* Mobile-optimized Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
-          className="absolute top-20 left-20 w-48 h-48 lg:w-80 lg:h-80 bg-primary/4 lg:bg-primary/8 rounded-full blur-lg lg:blur-2xl"
+          className="absolute top-10 left-10 w-32 h-32 sm:top-20 sm:left-20 sm:w-48 sm:h-48 lg:w-80 lg:h-80 bg-primary/3 sm:bg-primary/4 lg:bg-primary/8 rounded-full blur-lg lg:blur-2xl"
           animate={{ opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 right-20 w-56 h-56 lg:w-96 lg:h-96 bg-accent/4 lg:bg-accent/8 rounded-full blur-lg lg:blur-2xl"
+          className="absolute bottom-10 right-10 w-40 h-40 sm:bottom-20 sm:right-20 sm:w-56 sm:h-56 lg:w-96 lg:h-96 bg-accent/3 sm:bg-accent/4 lg:bg-accent/8 rounded-full blur-lg lg:blur-2xl"
           animate={{ opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full min-h-screen flex flex-col justify-center py-8 sm:py-12">
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2 
-            className="text-5xl lg:text-6xl font-bold font-display gradient-text mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-display gradient-text mb-4 sm:mb-6"
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             Leadership & Volunteering
           </motion.h2>
@@ -85,7 +85,7 @@ export const Leadership = () => {
         </motion.div>
 
         {/* Leadership Roles */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {leadershipRoles.map((role, index) => (
             <motion.div
               key={role.title}

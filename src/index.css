@@ -252,11 +252,33 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
   
+  /* Section layout utilities - CRITICAL for mobile visibility */
+  .section-min-height {
+    min-height: 100vh;
+  }
+  
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
   /* Mobile-first responsive breakpoints with performance optimizations */
   @media (max-width: 640px) {
     .container {
       padding-left: 1rem;
       padding-right: 1rem;
+    }
+    
+    /* Mobile section adjustments - ensure visibility */
+    .section-min-height {
+      min-height: auto;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    
+    .section-spacing {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
     
     /* Better mobile spacing */
